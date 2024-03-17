@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// use \App\Http\Controllers\HelloController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hello', '\App\Http\Controllers\HelloController@index');
+// helloアクションの定義
+// Route::get('/hello', '\App\Http\Controllers\HelloController@index');
+// 配列構文
+// Route::get('/hello', [HelloController::class, 'index']);
+// @see RouteServiceProvider.php
+Route::get('/hello', 'HelloController@index');
