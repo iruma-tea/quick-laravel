@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Book;
 
 class HelloController extends Controller
 {
@@ -19,5 +20,14 @@ class HelloController extends Controller
             'msg' => 'こんにちは、世界!'
         ];
         return view('hello.view', $data);
+    }
+
+    // listアクション
+    public function list()
+    {
+        $data = [
+            'records' => Book::all()
+        ];
+        return view('hello.list', $data);
     }
 }
