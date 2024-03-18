@@ -110,4 +110,32 @@ class ViewController extends Controller
             'isEnabled' => true
         ]);
     }
+
+    // masterアクション
+    public function master()
+    {
+        return view('view.master', [
+            'msg' => 'こんにちは、世界！',
+        ]);
+    }
+
+    // compアクション
+    public function comp()
+    {
+        $data = [
+            'title' => 'こんにちは、世界！',
+            'comp' => 'my-alert'
+        ];
+        return view('view.comp', $data);
+    }
+
+    // listアクション
+    public function list()
+    {
+        $data = [
+            'records' => Book::all()
+        ];
+
+        return view('view.list', $data);
+    }
 }
