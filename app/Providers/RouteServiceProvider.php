@@ -28,6 +28,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // グローバル制約(ルートを跨ってパラメータの制約を付与)
+        // Route::pattern('id', '[0-9]{2,3}');
+
         $this->configureRateLimiting();
 
         $this->routes(function () {

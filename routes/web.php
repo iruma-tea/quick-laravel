@@ -48,3 +48,18 @@ Route::get('/view/list', 'ViewController@list');
 // Route::get('/route/param/{id}', 'RouteController@param');
 // Route::get('/route/param/{id?}', 'RouteController@param');
 Route::get('/route/param/{id?}', 'RouteController@param')->where(['id' => '[0-9]{2,3}']);
+// Route::get('/route/param/{id?}', 'RouteController@param')->whereNumber('id');
+// 可変パラメータ
+Route::get('/route/search/{keywd?}', 'RouteController@search')->where('keywd', '.*');
+// ルートグループ
+Route::prefix('/members')->group(function () {
+    Route::get('/info', 'RouteController@info');
+    Route::get('/article', 'RouteController@article');
+});
+
+// コントローラへのルート情報を束ねる
+// Route::controller(HelloController::class)->group(function () {
+//     Route::get('/hello', 'index');
+//     Route::get('/hello/view', 'view');
+//     Route::get('/hello/list', 'list');
+// });
