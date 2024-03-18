@@ -29,3 +29,5 @@ Route::get('/hello/list', 'HelloController@list');
 
 // Vies
 Route::get('/view/escape', 'ViewController@escape');
+Route::get('/view/comment', 'ViewController@comment');
+Route::get('/view/if', 'ViewController@if');
