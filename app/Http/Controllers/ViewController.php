@@ -94,4 +94,20 @@ class ViewController extends Controller
         ];
         return view('view.forelse', $data);
     }
+
+    // style_classアクション
+    public function style_class()
+    {
+        return view('view.style_class', [
+            'isEnabled' => true
+        ]);
+    }
+
+    // checkedアクション
+    public function checked()
+    {
+        return view('view.checked', [
+            'isEnabled' => true
+        ]);
+    }
 }

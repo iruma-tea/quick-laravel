@@ -19,6 +19,8 @@
             <th>depth</th>
         </tr>
         @foreach ($weeks as $week)
+            {{-- @break($loop->iteration > 3) --}}
+            {{-- @continue($loop->odd) --}}
             <tr>
                 <td>{{$week}}</td>
                 <td>{{$loop->index}}</td>
