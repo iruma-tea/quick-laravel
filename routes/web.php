@@ -78,3 +78,12 @@ Route::get('/route/enum_param/{category}', 'RouteController@enum_param');
 // リダイレクト
 Route::redirect('/hoge', '/');
 // Route::redirect('/hoge', '/', 301);
+
+// リソースルート
+Route::resource('/articles', 'ArticleController');
+// Route::resource('/articles', 'ArticleController')
+//     ->except([ 'edit', 'update' ]);
+// Route::resources([
+//     '/articles' => 'ArticleController',
+//     '/hello' => 'HelloController',
+//   ]);
