@@ -63,3 +63,11 @@ Route::prefix('/members')->group(function () {
 //     Route::get('/hello/view', 'view');
 //     Route::get('/hello/list', 'list');
 // });
+
+// 名前空間つきコントローラのルート
+Route::namespace('Main')->group(function () {
+    Route::get('/route/ns', 'RouteController@ns');
+});
+
+// アクションの省略
+Route::view('/route', 'route.view', ['name' => 'Laravel']);
