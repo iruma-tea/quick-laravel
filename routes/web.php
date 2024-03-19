@@ -26,6 +26,7 @@ Route::get('/', function () {
 Route::get('/hello', 'HelloController@index');
 Route::get('/hello/view', 'HelloController@view');
 Route::get('/hello/list', 'HelloController@list');
+// Route::get('/hello/list', 'HelloController@list')->name('list');
 
 // view
 Route::get('/view/escape', 'ViewController@escape');
@@ -100,3 +101,4 @@ Route::get('/ctrl/outJson', 'CtrlController@outJson');
 Route::get('/ctrl/outFile', 'CtrlController@outFile');
 Route::get('/ctrl/outCsv', 'CtrlController@outCsv');
 Route::get('/ctrl/outImage', 'CtrlController@outImage');
+Route::get('/ctrl/redirectBasic', 'CtrlController@redirectBasic');

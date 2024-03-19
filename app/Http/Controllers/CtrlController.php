@@ -70,4 +70,14 @@ class CtrlController extends Controller
     {
         return response()->file('C:/data/wings.png', ['content-type' => 'image/png']);
     }
+
+    // リダイレクトアクション
+    public function redirectBasic()
+    {
+        return redirect('hello/list');
+        // return redirect()->route('list');
+        // return redirect()->route('param', ['id' => 108]);
+        // return redirect()->action('RouteController@param', ['id' => 108]);
+        // return redirect()->away('https://wings.msn.to/');
+    }
 }
