@@ -80,4 +80,31 @@ class CtrlController extends Controller
         // return redirect()->action('RouteController@param', ['id' => 108]);
         // return redirect()->away('https://wings.msn.to/');
     }
+
+    // indexアクション
+    public function index(Request $req)
+    {
+        return 'リクエストパス:' . $req->path();
+    }
+
+    // hogeアクション
+    public function hoge(Request $request, $id)
+    {
+        return 'id値：' . $id;
+    }
+
+    // formアクション
+    public function form()
+    {
+        return view('ctrl.form', ['result' => '']);
+    }
+
+    // resultアクション
+    public function result(Request $req)
+    {
+        $name = $req->name;
+        // $dt = $req->date('name', 'Y-m-d', 'Asia/Tokyo');
+        // $name = $req->input('hoge', '名無権兵衛');
+        return view('ctrl.form', ['result' => 'こんにちは、' . $name . 'さん！']);
+    }
 }

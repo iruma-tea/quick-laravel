@@ -102,3 +102,7 @@ Route::get('/ctrl/outFile', 'CtrlController@outFile');
 Route::get('/ctrl/outCsv', 'CtrlController@outCsv');
 Route::get('/ctrl/outImage', 'CtrlController@outImage');
 Route::get('/ctrl/redirectBasic', 'CtrlController@redirectBasic');
+Route::get('/ctrl/index', 'CtrlController@index');
+Route::get('/ctrl/hoge/{id?}', 'CtrlController@hoge');
+Route::get('/ctrl/form/{name?}', 'CtrlController@form');
+Route::post('/ctrl/result', 'CtrlController@result');
