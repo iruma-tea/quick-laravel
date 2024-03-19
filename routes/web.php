@@ -87,3 +87,8 @@ Route::resource('/articles', 'ArticleController');
 //     '/articles' => 'ArticleController',
 //     '/hello' => 'HelloController',
 //   ]);
+
+// フォールバックルート(どのルートにもマッチしない場合に最終的に実行すべきルート)
+Route::fallback(function () {
+    return view('route.error');
+});
