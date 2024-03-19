@@ -48,6 +48,50 @@ Route::get('/view/list', 'ViewController@list');
 // Route::get('/route/param/{id}', 'RouteController@param');
 // Route::get('/route/param/{id?}', 'RouteController@param');
 Route::get('/route/param/{id?}', 'RouteController@param')->where(['id' => '[0-9]{2,3}']);
+// Route::get('/route/param/{id?}', 'RouteController@param')->whereNumber('id');
+// 可変パラメータ
+Route::get('/route/search/{keywd?}', 'RouteController@search')->where('keywd', '.*');
+// ルートグループ
+Route::prefix('/members')->group(function () {
+    Route::get('/info', 'RouteController@info');
+    Route::get('/article', 'RouteController@article');
+});
+
+// コントローラへのルート情報を束ねる
+// Route::controller(HelloController::class)->group(function () {
+//     Route::get('/hello', 'index');
+//     Route::get('/hello/view', 'view');
+//     Route::get('/hello/list', 'list');
+// });
+
+// 名前空間つきコントローラのルート
+Route::namespace('Main')->group(function () {
+    Route::get('/route/ns', 'RouteController@ns');
+});
+
+// アクションの省略
+Route::view('/route', 'route.view', ['name' => 'Laravel']);
+
+// Enum型によるパラメーターの制御
+Route::get('/route/enum_param/{category}', 'RouteController@enum_param');
+
+// リダイレクト
+Route::redirect('/hoge', '/');
+// Route::redirect('/hoge', '/', 301);
+
+// リソースルート
+Route::resource('/articles', 'ArticleController');
+// Route::resource('/articles', 'ArticleController')
+//     ->except([ 'edit', 'update' ]);
+// Route::resources([
+//     '/articles' => 'ArticleController',
+//     '/hello' => 'HelloController',
+//   ]);
+
+// フォールバックルート(どのルートにもマッチしない場合に最終的に実行すべきルート)
+Route::fallback(function () {
+    return view('route.error');
+});
 
 // Ctrl
 Route::get('/ctrl/plain', 'CtrlController@plain');
