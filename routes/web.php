@@ -74,3 +74,7 @@ Route::view('/route', 'route.view', ['name' => 'Laravel']);
 
 // Enum型によるパラメーターの制御
 Route::get('/route/enum_param/{category}', 'RouteController@enum_param');
+
+// リダイレクト
+Route::redirect('/hoge', '/');
+// Route::redirect('/hoge', '/', 301);
