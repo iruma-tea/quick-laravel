@@ -105,6 +105,35 @@ class CtrlController extends Controller
         $name = $req->name;
         // $dt = $req->date('name', 'Y-m-d', 'Asia/Tokyo');
         // $name = $req->input('hoge', '名無権兵衛');
-        return view('ctrl.form', ['result' => 'こんにちは、' . $name . 'さん！']);
+        // return view('ctrl.form', ['result' => 'こんにちは、' . $name . 'さん！']);
+        if (empty($name) || mb_strlen($name) > 10) {
+            return redirect('ctrl/form')->withInput()->with('alert', '名前は必須、または、10文字以内で入力してください。');
+        } else {
+            $req->flash();
+            return view('ctrl.form', [
+                'result' => 'こんにちは、' . $name . 'さん！'
+            ]);
+        }
+    }
+
+    // uploadアクション
+    public function upload()
+    {
+        return view('ctrl.upload', ['result' => '']);
+    }
+
+    // uploadfile
+    public function uploadfile(Request $req)
+    {
+        if (!$req->hasFile('upfile')) {
+            return 'ファイルを指定してください。';
+        }
+        $file = $req->upfile;
+        if (!$file->isValid()) {
+            return 'アップロードに失敗しました。';
+        }
+        $name = $file->getClientOriginalName();
+        $file->storeAs('files', $name); // storage/app/filesにアップロードファイルが格納される。
+        return view('ctrl.upload', ['result' => $name . 'をアップロードしました。']);
     }
 }

@@ -1,6 +1,9 @@
 @extends('layouts.base')
 @section('title', 'フォームの基本')
 @section('main')
+    @if (session('alert'))
+        <div class="alert">{{ session('alert') }}</div>
+    @endif
     <form action="/ctrl/result" method="post">
         {{-- CSRF対策(おまじない) --}}
         @csrf

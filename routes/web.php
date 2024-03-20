@@ -106,3 +106,5 @@ Route::get('/ctrl/index', 'CtrlController@index');
 Route::get('/ctrl/hoge/{id?}', 'CtrlController@hoge');
 Route::get('/ctrl/form/{name?}', 'CtrlController@form');
 Route::post('/ctrl/result', 'CtrlController@result');
+Route::get('/ctrl/upload', 'CtrlController@upload');
+Route::post('/ctrl/uploadfile', 'CtrlController@uploadfile');
