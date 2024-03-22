@@ -136,4 +136,10 @@ class CtrlController extends Controller
         $file->storeAs('files', $name); // storage/app/filesにアップロードファイルが格納される。
         return view('ctrl.upload', ['result' => $name . 'をアップロードしました。']);
     }
+
+    // middleアクション
+    public function middle()
+    {
+        return 'log is recorded!!';
+    }
 }
