@@ -6,6 +6,18 @@ use Illuminate\Http\Request;
 
 class CtrlController extends Controller
 {
+
+    // コンストラクタ(コメント化)
+    // public function __construct()
+    // {
+    //     // コントローラ内でミドルウェアを登録するロジックの例
+    //     $this->middleware(function ($request, $next) {
+    //         file_put_contents('C:/data/access.log', date('Y-m-d H:i:s'), FILE_APPEND);
+    //         return $next($request);
+    //     })->only(['basic', 'basic2']);
+    //     // });
+    // }
+
     // plainアクション
     public function plain()
     {
@@ -139,6 +151,12 @@ class CtrlController extends Controller
 
     // middleアクション
     public function middle()
+    {
+        return 'log is recorded!!';
+    }
+
+    // basicアクション
+    public function basic()
     {
         return 'log is recorded!!';
     }

@@ -17,6 +17,8 @@ class LogMiddleware
     public function handle(Request $request, Closure $next)
     {
         file_put_contents(__DIR__ . '/data/access.log', date('Y-m-d H:i:s') . "\n", FILE_APPEND);
-        return $next($request);
+        $response = $next($request);
+        $response->setContent(mb_strtoupper($response->content()));
+        return $response;
     }
 }
