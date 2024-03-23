@@ -114,3 +114,9 @@ Route::get('/ctrl/middle', 'CtrlController@middle');
 // Route::group(['middleware' => 'debug'], function () {
 //     Route::get('/ctrl/middle', 'CtrlController@middle');
 // });
+
+
+// State
+Route::get('/state/recCookie', 'StateController@recCookie');
+Route::get('/state/delCookie', 'StateController@delCookie');
+Route::get('/state/readCookie', 'StateController@readCookie');
