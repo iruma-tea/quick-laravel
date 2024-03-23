@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Book;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -25,5 +26,7 @@ class BooksTableSeeder extends Seeder
         DB::insert('INSERT INTO books(isbn, title, price, publisher, published) VALUES("978-4-295-00409-7", "いまから学ぶJavaScript", 2400, "IT Emotion", "2021-07-20")');
         DB::insert('INSERT INTO books(isbn, title, price, publisher, published) VALUES("978-4-295-00638-1", "いまから学ぶHTML/CSS", 2400, "IT Emotion", "2022-06-21")');
         DB::insert('INSERT INTO books(isbn, title, price, publisher, published) VALUES("978-4-7981-5757-3", "JavaScriptレシピ", 2800, "走跳社", "2021-10-15")');
+
+        // Book::factory()->count(50)->create();
     }
 }
