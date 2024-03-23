@@ -8,7 +8,7 @@
         {{-- CSRF対策(おまじない) --}}
         @csrf
         <label for="name">名前：</label>
-        <input type="text" name="name" id="name" value="" />
+        <input type="text" name="name" id="name" value="{{old('name', '')}}" />
         <button type="submit">送信</button>
         <p>{{$result}}</p>
     </form>
