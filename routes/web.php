@@ -126,3 +126,4 @@ Route::get('/state/session2', 'StateController@session2');
 // Record
 Route::get('/record/find', 'RecordController@find');
 Route::get('/record/where', 'RecordController@where');
+Route::get('/record/hasmany', 'RecordController@hasmany');

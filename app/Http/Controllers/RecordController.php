@@ -61,4 +61,11 @@ class RecordController extends Controller
         // $result = Book::where('publisher', '走跳社')->max('price');
         // return $result;
     }
+
+    public function hasmany()
+    {
+        return view('record.hasmany', [
+            'book' => Book::find(1)
+        ]);
+    }
 }
