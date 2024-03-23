@@ -120,3 +120,5 @@ Route::get('/ctrl/middle', 'CtrlController@middle');
 Route::get('/state/recCookie', 'StateController@recCookie');
 Route::get('/state/delCookie', 'StateController@delCookie');
 Route::get('/state/readCookie', 'StateController@readCookie');
+Route::get('/state/session1', 'StateController@session1');
+Route::get('/state/session2', 'StateController@session2');
