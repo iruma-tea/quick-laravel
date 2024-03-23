@@ -16,7 +16,7 @@ class RecordController extends Controller
     // whereアクション
     public function where()
     {
-        // $result = Book::where('publisher', '走跳社')->get();
+        $result = Book::where('publisher', '走跳社')->get();
         // 大小比較
         // $result = Book::where('price', '<', 3000)->get();
         // 部分一致
@@ -41,9 +41,24 @@ class RecordController extends Controller
         // $result = Book::orderBy('published', 'desc')->offset(2)->limit(3)->get();
         // 取得列の制約
         // $result = Book::select('title', 'publisher')->get();
-        // return view('hello.list', ['records' => $result]);
+        // スコープの利用(1)
+        // $result = Book::published()->get();
+        // スコープの利用(2)
+        // $result = Book::publisher('走跳社')->get();
+        return view('hello.list', ['records' => $result]);
+
         // データのグループ化
-        $result = Book::groupBy('publisher')->selectRaw('publisher, AVG(price) AS price_avg')->get();
-        return view('record.where', ['records' => $result]);
+        // $result = Book::groupBy('publisher')->selectRaw('publisher, AVG(price) AS price_avg')->get();
+        // グループ化列の絞り込み
+        // $result = Book::groupBy('publisher')->having('price_avg', '<', 2500)->selectRaw('publisher, AVG(price) AS price_avg')->get();
+        // SQL命令のデバック(1)
+        // $result = Book::groupBy('publisher')->having('price_avg', '<', 2500)->selectRaw('publisher, AVG(price) AS price_avg')->dump()->get();
+        // SQL命令のデバック(2)
+        // $result = Book::groupBy('publisher')->having('price_avg', '<', 2500)->selectRaw('publisher, AVG(price) AS price_avg')->dd()->get();
+        // return view('record.where', ['records' => $result]);
+
+        // データの集計
+        // $result = Book::where('publisher', '走跳社')->max('price');
+        // return $result;
     }
 }
