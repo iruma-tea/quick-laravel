@@ -9,6 +9,9 @@ class Book extends Model
 {
     use HasFactory;
 
+    // fillメソッドによる割り当てを許可する項目
+    protected $fillable = ['isbn', 'title', 'price', 'publisher', 'published'];
+
     // publishedスコープ
     public function scopePublished($query)
     {
