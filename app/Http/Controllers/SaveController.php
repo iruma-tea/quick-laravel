@@ -20,4 +20,34 @@ class SaveController extends Controller
         $b->fill($req->except('_token'))->save();
         return redirect('save/create');
     }
+
+    // 指定された書籍情報を取得
+    public function edit($id)
+    {
+        return view('save.edit', [
+            'b' => Book::findOrFail($id)
+        ]);
+    }
+
+    // 指定された書籍情報を更新
+    public function update(Request $req, $id)
+    {
+        $b = Book::findOrFail($id);
+        $b->fill($req->except('_token'))->save();
+        return redirect('hello/list');
+    }
+
+    public function show($id)
+    {
+        return view('save.show', [
+            'b' => Book::findOrFail($id)
+        ]);
+    }
+
+    public function destroy($id)
+    {
+        $b = Book::findOrFail($id);
+        $b->delete();
+        return redirect('hello/list');
+    }
 }
