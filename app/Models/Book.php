@@ -12,6 +12,14 @@ class Book extends Model
     // fillメソッドによる割り当てを許可する項目
     protected $fillable = ['isbn', 'title', 'price', 'publisher', 'published'];
 
+    public static $rules = [
+        'isbn' => 'required',
+        'title' => 'required|string|max:10',
+        'price' => 'integer|min:0',
+        'publisher' => 'required|in:走跳社,テックCode,ジャパンIT,優丸システム,IT Emotion',
+        'published' => 'required|date'
+    ];
+
     // publishedスコープ
     public function scopePublished($query)
     {
